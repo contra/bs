@@ -1,0 +1,88 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  padding: 20px;
+}
+
+
+.live {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: bold;
+  color: red;
+}
+
+.live > .indicator {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
+  background: red;
+  animation: blink 1s steps(1) infinite;
+}
+
+.big-header {
+  opacity: 0;
+  text-align: center;
+  font-size: 30rem;
+  font-family: 'Creepster', cursive;
+  text-shadow: #000 1px 1px,
+    #000 2px 2px, #000 3px 3px,
+    #000 4px 4px, #000 5px 5px,
+    #000 6px 6px, #000 7px 7px,
+    #000 8px 8px, #000 9px 9px,
+    #000 10px 10px, #000 11px 11px;
+  transition: opacity 1500ms ease-in-out;
+}
+
+.active {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 480px) {
+  .big-header {
+    font-size: 30vw;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .big-header {
+    font-size: 10rem;
+  }
+}
+
+@keyframes blink {
+ 0% {
+    opacity: 1;
+ }
+ 50% {
+    opacity: 0;
+ }
+ 100% {
+    opacity: 1;
+ }
+}
