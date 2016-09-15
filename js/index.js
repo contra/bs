@@ -159,9 +159,31 @@ function endMadness() {
 
 	console.log('end')
 
-	document.querySelectorAll('.big-header')[0].className += ' active'
+	var head = document.querySelectorAll('.big-header')[0]
 	fuckup()
-	
+
 	music.play()
 	// video.muted = true
+
+	head.className += ' active'
+	head.innerText = 'representing your interests'
+
+	var idx = 0;
+	var txts = [
+		'defending the constitution',
+		'fighting for liberty',
+		'upholding the rule of law',
+		'representing you',
+		'dont look at the details',
+		'follow the law',
+		'you have nothing to hide'
+	]
+	var flash = setInterval(function(){
+		head.innerText = txts[++idx % txts.length]
+	}, 250)
+	setTimeout(function(){
+		clearInterval(flash)
+		head.innerText = 'dont worry'
+		head.className += ' active bounce'
+	}, 20000)
 }
