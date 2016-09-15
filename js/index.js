@@ -25,8 +25,12 @@ var interval = setInterval(function() {
 var music = document.createElement('audio')
 music.loop = true
 music.preload = true
-music.volume = 0.8
+music.volume = 0.6
 music.src = 'res/music.mp3'
+
+var annoying = document.createElement('audio')
+annoying.preload = true
+annoying.src = 'res/annoying.wav'
 
 // make video
 var video = document.createElement('video')
@@ -185,5 +189,9 @@ function endMadness() {
 		clearInterval(flash)
 		head.innerText = 'dont worry'
 		head.className += ' active bounce'
-	}, 20000)
+		tags.forEach(function(tag){
+			tag.pause()
+		})
+		annoying.play()
+	}, 14000)
 }
