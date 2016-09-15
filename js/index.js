@@ -1,7 +1,9 @@
-var delay = 3000;
+var delay = 1500;
 
 // queue up voices
-var items = [ 1, 2, 3, 4, 5, 6 ]
+var items = [
+	1, 2, 3, 4, 5, 6
+]
 var tags = []
 var volume = 0.3
 var interval = setInterval(function() {
@@ -17,13 +19,13 @@ var interval = setInterval(function() {
 	})
 
 	if (volume === 1) endMadness()
-}, delay)
+}, 3000)
 
 // music
 var music = document.createElement('audio')
 music.loop = true
 music.preload = true
-music.volume = 0.9
+music.volume = 0.8
 music.src = 'res/music.mp3'
 
 // make video
@@ -140,28 +142,26 @@ function play(id) {
 	setTimeout(function() {
 		console.log('triggering initial', id)
 		audio.play()
-		badTVPass.uniforms.distortion.value += 0.5
-		badTVPass.uniforms.distortion2.value += 0.5
-		rgbPass.uniforms.amount.value += 0.005
-		rgbPass.uniforms.angle.value += 0.05
+		fuckup()
 	}, ourDelay)
 	return audio
 }
 
+function fuckup() {
+	badTVPass.uniforms.distortion.value += 0.5
+	badTVPass.uniforms.distortion2.value += 0.5
+	rgbPass.uniforms.amount.value += 0.003
+	rgbPass.uniforms.angle.value += 0.03
+}
+
 function endMadness() {
 	clearInterval(interval)
+
 	console.log('end')
 
 	document.querySelectorAll('.big-header')[0].className += ' active'
-	badTVPass.uniforms.distortion.value += 1
-	badTVPass.uniforms.distortion2.value += 1
-
-	rgbPass.uniforms.amount.value += 0.02
-	rgbPass.uniforms.angle.value += 0.1
-
-	tags.forEach(function(tag) {
-		tag.pause()
-	})
+	fuckup()
+	
 	music.play()
 	// video.muted = true
 }
