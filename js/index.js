@@ -23,6 +23,7 @@ var interval = setInterval(function() {
 var music = document.createElement('audio')
 music.loop = true
 music.preload = true
+music.volume = 0.9
 music.src = 'res/music.mp3'
 
 // make video
@@ -152,9 +153,8 @@ function endMadness() {
 	console.log('end')
 
 	document.querySelectorAll('.big-header')[0].className += ' active'
-	badTVPass.uniforms.distortion.value += 2
-	badTVPass.uniforms.distortion2.value += 2
-	badTVPass.uniforms.speed.value += 0.1
+	badTVPass.uniforms.distortion.value += 1
+	badTVPass.uniforms.distortion2.value += 1
 
 	rgbPass.uniforms.amount.value += 0.02
 	rgbPass.uniforms.angle.value += 0.1
@@ -163,6 +163,5 @@ function endMadness() {
 		tag.pause()
 	})
 	music.play()
-	console.log(music)
 	// video.muted = true
 }

@@ -57,6 +57,9 @@ html, body {
     #000 8px 8px, #000 9px 9px,
     #000 10px 10px, #000 11px 11px;
   transition: opacity 1500ms ease-in-out;
+  animation: shiz 10s infinite;
+  animation-direction: alternate;
+  transform: rotate(30deg);
 }
 
 .active {
@@ -84,5 +87,14 @@ html, body {
  }
  100% {
     opacity: 1;
+ }
+}
+
+@keyframes shiz {
+ 0% {
+    transform: rotate(30deg);
+ }
+ 100% {
+    transform: rotate(-30deg);
  }
 }
