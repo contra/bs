@@ -30,7 +30,7 @@ music.src = 'res/music.mp3'
 
 var annoying = document.createElement('audio')
 annoying.preload = true
-annoying.src = 'res/annoying.wav'
+annoying.src = 'res/annoying.mp3'
 
 // make video
 var video = document.createElement('video')
